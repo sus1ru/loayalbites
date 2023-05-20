@@ -25,4 +25,3 @@ RUN pip install --no-cache-dir setuptools==57.5.0
 RUN pip install --no-cache-dir -r requirements.txt
 RUN rm /code/requirements.txt /code/apt_requirements.txt
 
-ENTRYPOINT /code/entrypoint.sh
