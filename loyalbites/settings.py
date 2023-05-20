@@ -29,7 +29,7 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
-DATABASE_URL=os.environ.get("DATABASE_URL", "postgresql://postgres:f5JDjMxJL3UBmbMmbvGm@containers-us-west-105.railway.app:6136/railway")
+DATABASE_URL=os.environ.get("DATABASE_URL", "postgresql://postgres:GAxBn8j5dRzQpPF6ChPg@containers-us-west-1.railway.app:7552/railway")
 
 
 # Application definition
@@ -103,6 +103,7 @@ WSGI_APPLICATION = 'loyalbites.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+## Local database variables
 # DATABASES = {
 #     "default": {
 #         "ENGINE": os.environ.get(
@@ -116,12 +117,26 @@ WSGI_APPLICATION = 'loyalbites.wsgi.application'
 #     }
 # }
 
+## Railway database variables
 DATABASES = {
-    "default": dj_database_url.config(
-        default=DATABASE_URL,
-        conn_max_age=1800,
-    )
+    "default": {
+        "ENGINE": os.environ.get(
+            "SQL_ENGINE", "django.db.backends.postgresql"
+        ),
+        "NAME": os.environ.get("PGDATABASE", "railway"),
+        "USER": os.environ.get("PGUSER", "postgres"),
+        "PASSWORD": os.environ.get("PGPASSWORD", "GAxBn8j5dRzQpPF6ChPg"),
+        "PORT": os.environ.get("PGPORT", "7552"),
+        "HOST": os.environ.get("PGHOST", "containers-us-west-1.railway.app"),
+    }
 }
+
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default=DATABASE_URL,
+#         conn_max_age=1800,
+#     )
+# }
 
 
 # Password validation
