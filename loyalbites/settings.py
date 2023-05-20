@@ -121,7 +121,7 @@ WSGI_APPLICATION = 'loyalbites.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": os.environ.get(
-            "SQL_ENGINE", "django.db.backends.postgresql"
+            "SQL_ENGINE_RW", "django.db.backends.postgresql_psycopg2"
         ),
         "NAME": os.environ.get("PGDATABASE", "railway"),
         "USER": os.environ.get("PGUSER", "postgres"),
