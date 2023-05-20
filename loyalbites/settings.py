@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-s!v9^wnjbb@6c-(e9$)8c&&2-!!0de0d*zaeh!7npkosuqsypp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
+ALLOWED_HOSTS = ["*"]
 
 DATABASE_URL=os.environ.get("DATABASE_URL", "postgresql://postgres:f5JDjMxJL3UBmbMmbvGm@containers-us-west-105.railway.app:6136/railway")
 
